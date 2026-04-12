@@ -1,0 +1,153 @@
+{
+  "products": [
+    {
+      "id": "prod_001",
+      "name": "Meu Jantar (500ml)",
+      "price": 14.9,
+      "oldPrice": 19.9,
+      "isBestSeller": true,
+      "imageUrl": "/images/jantar.jpg",
+      "group": { "id": "grp_001", "name": "Marmitas", "slug": "marmitas" }
+    },
+    {
+      "id": "prod_002",
+      "name": "Marmita Fit Frango",
+      "price": 16.9,
+      "imageUrl": "/images/frango-fit.jpg",
+      "group": { "id": "grp_001", "name": "Marmitas", "slug": "marmitas" }
+    },
+    {
+      "id": "prod_003",
+      "name": "Marmita Carne Acebolada",
+      "price": 17.9,
+      "imageUrl": "/images/carne.jpg",
+      "group": { "id": "grp_001", "name": "Marmitas", "slug": "marmitas" }
+    },
+    {
+      "id": "prod_004",
+      "name": "Marmita Frango + Macarrão",
+      "price": 15.9,
+      "imageUrl": "/images/frango-macarrao.jpg",
+      "group": { "id": "grp_001", "name": "Marmitas", "slug": "marmitas" }
+    },
+    {
+      "id": "prod_005",
+      "name": "Marmita Vegetariana",
+      "price": 15.5,
+      "imageUrl": "/images/veg.jpg",
+      "group": { "id": "grp_001", "name": "Marmitas", "slug": "marmitas" }
+    },
+    {
+      "id": "prod_006",
+      "name": "Marmita Peixe Grelhado",
+      "price": 18.9,
+      "imageUrl": "/images/peixe.jpg",
+      "group": { "id": "grp_001", "name": "Marmitas", "slug": "marmitas" }
+    },
+    {
+      "id": "prod_007",
+      "name": "Marmita Completa Premium",
+      "price": 21.9,
+      "isBestSeller": true,
+      "imageUrl": "/images/premium.jpg",
+      "group": { "id": "grp_001", "name": "Marmitas", "slug": "marmitas" }
+    },
+    {
+      "id": "prod_008",
+      "name": "Marmita Econômica",
+      "price": 12.9,
+      "imageUrl": "/images/economica.jpg",
+      "group": { "id": "grp_001", "name": "Marmitas", "slug": "marmitas" }
+    },
+
+    {
+      "id": "prod_009",
+      "name": "Batidinha de Morango",
+      "price": 9.9,
+      "isBestSeller": true,
+      "imageUrl": "/images/morango.jpg",
+      "group": { "id": "grp_002", "name": "Bebidas", "slug": "bebidas" }
+    },
+    {
+      "id": "prod_010",
+      "name": "Batidinha de Maracujá",
+      "price": 9.9,
+      "imageUrl": "/images/maracuja.jpg",
+      "group": { "id": "grp_002", "name": "Bebidas", "slug": "bebidas" }
+    },
+    {
+      "id": "prod_011",
+      "name": "Batidinha de Limão",
+      "price": 9.9,
+      "imageUrl": "/images/limao.jpg",
+      "group": { "id": "grp_002", "name": "Bebidas", "slug": "bebidas" }
+    },
+    {
+      "id": "prod_012",
+      "name": "Batidinha de Açaí",
+      "price": 11.9,
+      "imageUrl": "/images/acai.jpg",
+      "group": { "id": "grp_002", "name": "Bebidas", "slug": "bebidas" }
+    },
+    {
+      "id": "prod_013",
+      "name": "Combo 2 Batidinhas",
+      "price": 17.9,
+      "oldPrice": 19.8,
+      "isBestSeller": true,
+      "imageUrl": "/images/combo.jpg",
+      "group": { "id": "grp_002", "name": "Bebidas", "slug": "bebidas" }
+    },
+    {
+      "id": "prod_014",
+      "name": "Suco Natural de Laranja",
+      "price": 7.9,
+      "imageUrl": "/images/laranja.jpg",
+      "group": { "id": "grp_002", "name": "Bebidas", "slug": "bebidas" }
+    },
+    {
+      "id": "prod_015",
+      "name": "Suco de Uva Integral",
+      "price": 8.9,
+      "imageUrl": "/images/uva.jpg",
+      "group": { "id": "grp_002", "name": "Bebidas", "slug": "bebidas" }
+    },
+    {
+      "id": "prod_016",
+      "name": "Refrigerante Lata",
+      "price": 5.9,
+      "imageUrl": "/images/refri.jpg",
+      "group": { "id": "grp_002", "name": "Bebidas", "slug": "bebidas" }
+    },
+
+    {
+      "id": "prod_017",
+      "name": "Mini Pudim",
+      "price": 6.9,
+      "isBestSeller": true,
+      "imageUrl": "/images/pudim.jpg",
+      "group": { "id": "grp_003", "name": "Sobremesas", "slug": "sobremesas" }
+    },
+    {
+      "id": "prod_018",
+      "name": "Mousse de Maracujá",
+      "price": 6.5,
+      "imageUrl": "/images/mousse.jpg",
+      "group": { "id": "grp_003", "name": "Sobremesas", "slug": "sobremesas" }
+    },
+    {
+      "id": "prod_019",
+      "name": "Geladinho Gourmet",
+      "price": 4.9,
+      "imageUrl": "/images/geladinho.jpg",
+      "group": { "id": "grp_003", "name": "Sobremesas", "slug": "sobremesas" }
+    },
+    {
+      "id": "prod_020",
+      "name": "Brownie de Chocolate",
+      "price": 7.9,
+      "imageUrl": "/images/brownie.jpg",
+      "group": { "id": "grp_003", "name": "Sobremesas", "slug": "sobremesas" }
+    }
+  ]
+}

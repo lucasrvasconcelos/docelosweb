@@ -1,4 +1,5 @@
 import { CompanyInfo } from "./components/companyInfo";
+import { ProductsList } from "./components/productsList";
 
 export function Menu() {
   return (
@@ -10,8 +11,9 @@ export function Menu() {
           src="https://storage.googleapis.com/prod-cardapio-web/uploads/company/image/21276/619ded64IMG_1925.jpeg"
         />
       </div>
-      <div className="bg-red-500 px-1 pb-6">
+      <div className="flex flex-col items-center justify-center gap-4 bg-background pb-6">
         <CompanyInfo />
+        <ProductsList />
       </div>
     </div>
   );

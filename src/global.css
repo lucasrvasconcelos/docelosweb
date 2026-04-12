@@ -47,11 +47,13 @@
   --font-heading: var(--font-sans);
   --font-sans: "Figtree Variable", sans-serif;
   --font-poppins: "Poppins", sans-serif;
+  --font-rubik: "Rubik", sans-serif;
 }
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  /* --background: oklch(1 0 0); */
+  --background: #f4f5f7;
   --foreground: oklch(0.147 0.004 49.3);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.147 0.004 49.3);
