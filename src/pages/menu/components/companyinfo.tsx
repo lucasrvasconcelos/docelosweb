@@ -5,7 +5,7 @@ import { TypographyH4 } from "@/components/ui/typographyH4";
 
 export function CompanyInfo() {
   return (
-    <div className="-mt-6 flex w-full flex-col items-center rounded-2xl bg-white px-3 pb-3 shadow-sm sm:hidden">
+    <div className="-mt-6 flex w-full flex-col items-center rounded-2xl bg-card px-3 pb-3 shadow-sm sm:hidden">
       <div className="flex flex-col items-center justify-center">
         <div className="-mt-11 rounded-full bg-white p-1.5">
           <div className="h-20 w-20 shrink-0 overflow-hidden rounded-full bg-linear-to-t from-white to-header shadow">
@@ -26,13 +26,19 @@ export function CompanyInfo() {
               <span>Fortaleza - CE</span>
             </div>
             <div className="flex items-center justify-center gap-0.5">
-              <MessageSquareMore className="text-primary" size={13} />
-              <Link className="font-bold text-primary" to={"/"}>
+              <MessageSquareMore
+                className="text-primary dark:text-primary-foreground"
+                size={13}
+              />
+              <Link
+                className="font-bold text-primary dark:text-primary-foreground"
+                to={"/"}
+              >
                 Mais informações
               </Link>
             </div>
           </div>
-          <TypographyH4 className="mt-3 font-bold text-chart-3 text-xs">
+          <TypographyH4 className="mt-3 font-bold text-green-500 text-xs">
             Aberto Agora - Até 23:00
           </TypographyH4>
         </div>

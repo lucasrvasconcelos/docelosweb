@@ -1,7 +1,7 @@
 export function NotFound() {
   return (
     <div>
-      <span>NotFound</span>
+      <span>Páginna não encontrada</span>
     </div>
   );
 }

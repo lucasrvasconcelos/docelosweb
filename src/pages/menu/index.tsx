@@ -1,7 +1,12 @@
+import { useGroupProducts } from "@/api/products/get-group-products";
+import { useFetchProducts } from "@/api/products/get-products";
 import { CompanyInfo } from "./components/companyInfo";
-import { ProductsList } from "./components/productsList";
+import { ProductMenu } from "./components/productMenu";
 
 export function Menu() {
+  const { products } = useFetchProducts();
+  const { groups } = useGroupProducts();
+
   return (
     <div className="w-full">
       <div className="h-40 w-full overflow-hidden bg-linear-to-t from-white to-primary sm:h-60">
@@ -11,9 +16,12 @@ export function Menu() {
           src="https://storage.googleapis.com/prod-cardapio-web/uploads/company/image/21276/619ded64IMG_1925.jpeg"
         />
       </div>
+
       <div className="flex flex-col items-center justify-center gap-4 bg-background pb-6">
         <CompanyInfo />
-        <ProductsList />
+        <div className="w-full">
+          <ProductMenu groups={groups} products={products} />
+        </div>
       </div>
     </div>
   );
