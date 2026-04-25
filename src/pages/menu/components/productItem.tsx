@@ -121,7 +121,7 @@ export function ProductItem({ product }: ProductItemProps) {
             placeholder="Alguma observação?"
             value={textArea}
           />
-          <span className="absolute -top-4 right-6 font-light font-semibold text-[10px] text-gray-500">{`${textArea.length} / ${MAX_SIZE_TEXTAREA}`}</span>
+          <span className="absolute -top-4 right-6 font-semibold text-[10px] text-gray-500">{`${textArea.length} / ${MAX_SIZE_TEXTAREA}`}</span>
         </div>
         <DialogClose asChild>
           <Button
