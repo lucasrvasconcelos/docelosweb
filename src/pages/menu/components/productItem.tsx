@@ -108,7 +108,7 @@ export function ProductItem({ product }: ProductItemProps) {
         </DialogHeader>
         <div className="relative mt-1 px-4">
           <Textarea
-            className="wrap-anywhere h-6 text-xs"
+            className={"wrap-anywhere h-6 text-xs"}
             id="observation"
             onChange={(e) =>
               setTextArea((state) => {

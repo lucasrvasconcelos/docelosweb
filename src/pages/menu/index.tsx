@@ -1,6 +1,6 @@
 import { useGroupProducts } from "@/api/products/get-group-products";
 import { useFetchProducts } from "@/api/products/get-products";
-import { CompanyInfo } from "./components/companyInfo";
+import { CompanyInfo } from "./components/companyinfo";
 import { ProductMenu } from "./components/productMenu";
 
 export function Menu() {
