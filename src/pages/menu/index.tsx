@@ -1,6 +1,6 @@
 import { useGroupProducts } from "@/api/products/get-group-products";
 import { useFetchProducts } from "@/api/products/get-products";
-import { CompanyInfo } from "./components/companyinfo";
+import { CompanyInfo } from "./components/companyInfo";
 import { ProductMenu } from "./components/productMenu";
 
 export function Menu() {
@@ -13,7 +13,7 @@ export function Menu() {
         <img
           alt="Tempero vasconcelos"
           className="h-40 w-full bg-white object-cover object-center sm:h-60"
-          src="https://storage.googleapis.com/prod-cardapio-web/uploads/company/image/21276/619ded64IMG_1925.jpeg"
+          src="https://storage.googleapis.com/prod-cardapio-web/uploads/company/image/21276/78ef55cbCapa_Card%C3%A1pio_Web-50.png"
         />
       </div>
 
