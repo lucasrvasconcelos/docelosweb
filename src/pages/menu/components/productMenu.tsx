@@ -1,7 +1,6 @@
 import { Boxes } from "lucide-react";
 import { useEffect } from "react";
-import type { Group } from "@/api/products/get-group-products";
-import type { ProductsType } from "@/api/products/get-products";
+import { useFetchCategories } from "@/api/products/get-categories";
 import {
   Select,
   SelectContent,
@@ -14,11 +13,9 @@ import { TypographyH4 } from "@/components/ui/typographyH4";
 import { useGroupScroll } from "@/hooks/useSectionScroll";
 import { ProductSections } from "./productSections";
 
-interface ProductMenuProps {
-  groups?: Group[];
-  products?: ProductsType[];
-}
-export function ProductMenu({ groups, products }: ProductMenuProps) {
+export function ProductMenu() {
+  const { categories } = useFetchCategories();
+
   const {
     activeGroupId,
     setActiveGroupId,
@@ -28,15 +25,15 @@ export function ProductMenu({ groups, products }: ProductMenuProps) {
   } = useGroupScroll({ offset: 80 });
 
   useEffect(() => {
-    if (groups?.length && !activeGroupId) {
-      setActiveGroupId(groups[0].id);
+    if (categories?.length && !activeGroupId) {
+      setActiveGroupId(categories[0].id);
     }
-  }, [groups, activeGroupId]);
+  }, [categories, activeGroupId]);
 
   useEffect(() => {
     const cleanup = observeSections();
     return cleanup;
-  }, [groups, observeSections]);
+  }, [categories, observeSections]);
 
   return (
     <div className="border-b">
@@ -53,17 +50,16 @@ export function ProductMenu({ groups, products }: ProductMenuProps) {
 
         <SelectContent>
           <SelectGroup>
-            {groups?.map((group) => (
-              <SelectItem key={group.id} value={group.id}>
-                {group.name}
+            {categories?.map((categorie) => (
+              <SelectItem key={categorie.id} value={categorie.id}>
+                {categorie.name}
               </SelectItem>
             ))}
           </SelectGroup>
         </SelectContent>
       </Select>
       <ProductSections
-        groups={groups}
-        products={products}
+        categories={categories}
         registerRef={registerGroupSection}
       />
     </div>

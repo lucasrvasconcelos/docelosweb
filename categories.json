@@ -11,11 +11,11 @@
             "id": "item-1",
             "name": "Açaí 500ml",
             "description": "Açaí cremoso com acompanhamentos",
-            "imageUrl": "https://images.unsplash.com/photo-1598514982841-9b5f5e4d6c0f",
+            "imageUrl": "https://storage.googleapis.com/prod-cardapio-web/uploads/item/image/3966593/d00b9002Milanesa__P_.jpg",
             "price": 12,
             "originalPrice": 15,
             "tags": ["best_seller", "promotion"],
-            "addons": [
+            "addonsGroup": [
               {
                 "id": "group-1",
                 "name": "Proteínas",
@@ -104,11 +104,11 @@
             "id": "item-2",
             "name": "Combo 2 Batidinhas",
             "description": "Morango + Maracujá",
-            "imageUrl": "https://images.unsplash.com/photo-1572490122747-3968b75cc699",
+            "imageUrl": "https://storage.googleapis.com/prod-cardapio-web/uploads/item/image/3966593/d00b9002Milanesa__P_.jpg",
             "price": 14,
             "originalPrice": 18,
             "tags": ["promotion", "recommended"],
-            "addons": [
+            "addonsGroup": [
               {
                 "id": "group-4",
                 "name": "Escolha os sabores",
@@ -156,10 +156,120 @@
             "id": "item-3",
             "name": "Mini Pudim",
             "description": "Cremoso e perfeito para uma pessoa",
-            "imageUrl": "https://images.unsplash.com/photo-1586985289906-406988974504",
+            "imageUrl": "https://storage.googleapis.com/prod-cardapio-web/uploads/item/image/3966593/d00b9002Milanesa__P_.jpg",
             "price": 6,
             "tags": ["new", "exclusive"],
-            "addons": [
+            "addonsGroup": [
+              {
+                "id": "group-5",
+                "name": "Turbine seu pudim",
+                "description": "Deixe ainda mais gostoso",
+                "required": false,
+                "addons": [
+                  {
+                    "id": "addon-11",
+                    "name": "Calda extra",
+                    "price": 1,
+                    "max_quantity": 2,
+                    "position": 1,
+                    "image_url": ""
+                  },
+                  {
+                    "id": "addon-12",
+                    "name": "Leite condensado",
+                    "price": 1.5,
+                    "max_quantity": 2,
+                    "position": 2,
+                    "image_url": ""
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cat-3",
+        "name": "Especiais da noite",
+        "description": "Confira nossa lista de especiais da noite",
+        "position": 2,
+        "items": [
+          {
+            "id": "item-3",
+            "name": "Mini Pudim",
+            "description": "Cremoso e perfeito para uma pessoa",
+            "imageUrl": "https://storage.googleapis.com/prod-cardapio-web/uploads/item/image/3966593/d00b9002Milanesa__P_.jpg",
+            "price": 6,
+            "tags": ["new", "exclusive"],
+            "addonsGroup": [
+              {
+                "id": "group-5",
+                "name": "Turbine seu pudim",
+                "description": "Deixe ainda mais gostoso",
+                "required": false,
+                "addons": [
+                  {
+                    "id": "addon-11",
+                    "name": "Calda extra",
+                    "price": 1,
+                    "max_quantity": 2,
+                    "position": 1,
+                    "image_url": ""
+                  },
+                  {
+                    "id": "addon-12",
+                    "name": "Leite condensado",
+                    "price": 1.5,
+                    "max_quantity": 2,
+                    "position": 2,
+                    "image_url": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "item-4",
+            "name": "Mini Pudim",
+            "description": "Cremoso e perfeito para uma pessoa",
+            "imageUrl": "https://storage.googleapis.com/prod-cardapio-web/uploads/item/image/3966593/d00b9002Milanesa__P_.jpg",
+            "price": 6,
+            "tags": ["new", "exclusive"],
+            "addonsGroup": [
+              {
+                "id": "group-5",
+                "name": "Turbine seu pudim",
+                "description": "Deixe ainda mais gostoso",
+                "required": false,
+                "addons": [
+                  {
+                    "id": "addon-11",
+                    "name": "Calda extra",
+                    "price": 1,
+                    "max_quantity": 2,
+                    "position": 1,
+                    "image_url": ""
+                  },
+                  {
+                    "id": "addon-12",
+                    "name": "Leite condensado",
+                    "price": 1.5,
+                    "max_quantity": 2,
+                    "position": 2,
+                    "image_url": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "item-5",
+            "name": "Mini Pudim",
+            "description": "Cremoso e perfeito para uma pessoa",
+            "imageUrl": "https://storage.googleapis.com/prod-cardapio-web/uploads/item/image/3966593/d00b9002Milanesa__P_.jpg",
+            "price": 6,
+            "tags": ["new", "exclusive"],
+            "addonsGroup": [
               {
                 "id": "group-5",
                 "name": "Turbine seu pudim",

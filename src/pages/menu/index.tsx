@@ -1,12 +1,7 @@
-import { useGroupProducts } from "@/api/products/get-group-products";
-import { useFetchProducts } from "@/api/products/get-products";
 import { CompanyInfo } from "./components/companyInfo";
 import { ProductMenu } from "./components/productMenu";
 
 export function Menu() {
-  const { products } = useFetchProducts();
-  const { groups } = useGroupProducts();
-
   return (
     <div className="w-full">
       <div className="h-40 w-full overflow-hidden bg-linear-to-t from-white to-primary sm:h-60">
@@ -20,7 +15,7 @@ export function Menu() {
       <div className="flex flex-col items-center justify-center gap-4 bg-background pb-6">
         <CompanyInfo />
         <div className="w-full">
-          <ProductMenu groups={groups} products={products} />
+          <ProductMenu />
         </div>
       </div>
     </div>

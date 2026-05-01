@@ -1,33 +1,26 @@
-import type { Group } from "@/api/products/get-group-products";
-import type { ProductsType } from "@/api/products/get-products";
+import type { CategoriesType } from "@/api/products/categories";
 import { ProductSection } from "./productSection";
 
 interface ProductSectionsType {
-  groups?: Group[];
-  products?: ProductsType[];
+  categories?: CategoriesType[];
+
   registerRef: (id: string) => (el: HTMLDivElement | null) => void;
 }
 export function ProductSections({
-  products,
-  groups,
+  categories,
   registerRef,
 }: ProductSectionsType) {
   return (
     <div className="mt-8 px-2 sm:px-0 md:mt-10">
-      {products?.length &&
-        groups?.map((group) => {
-          const groupProducts  = products.filter(
-            (products) => products.group.id === group.id
-          );
-          return (
-            <ProductSection
-              group={group}
-              key={group.id}
-              products={groupProducts }
-              ref={registerRef(group.id)}
-            />
-          );
-        })}
+      {categories?.map((categorie) => {
+        return (
+          <ProductSection
+            categorie={categorie}
+            key={categorie.id}
+            ref={registerRef(categorie.id)}
+          />
+        );
+      })}
     </div>
   );
 }
