@@ -1,4 +1,5 @@
 interface AddonsType {
+  description?: string;
   id: string;
   image_url?: string;
   max_quantity: number;
@@ -9,7 +10,7 @@ interface AddonsType {
 
 interface AddonsGroupType {
   addons: AddonsType[];
-  description: string;
+  description?: string;
   id: string;
   maxSelect?: number;
   name: string;

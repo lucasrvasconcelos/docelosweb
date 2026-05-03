@@ -29,15 +29,15 @@
                     "price": 4,
                     "max_quantity": 1,
                     "position": 1,
-                    "image_url": ""
+                    "image_url": "https://storage.googleapis.com/prod-cardapio-web/uploads/subitem/image/2413939/thumb_b1315d20IMG_1089.jpeg"
                   },
                   {
                     "id": "addon-2",
-                    "name": "Leite em pó",
+                    "name": "Açaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentos",
                     "price": 2,
                     "max_quantity": 1,
                     "position": 2,
-                    "image_url": ""
+                    "image_url": "https://storage.googleapis.com/prod-cardapio-web/uploads/subitem/image/2413939/thumb_b1315d20IMG_1089.jpeg"
                   }
                 ]
               },
@@ -52,30 +52,81 @@
                     "id": "addon-3",
                     "name": "Granola",
                     "price": 1.5,
+                    "description": "Açaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentos",
                     "max_quantity": 3,
                     "position": 1,
-                    "image_url": ""
+                    "image_url": "https://storage.googleapis.com/prod-cardapio-web/uploads/subitem/image/2413939/thumb_b1315d20IMG_1089.jpeg"
                   },
                   {
                     "id": "addon-4",
                     "name": "Banana",
                     "price": 1,
+                    "description": "Açaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentos",
                     "max_quantity": 3,
                     "position": 2,
-                    "image_url": ""
+                    "image_url": "https://storage.googleapis.com/prod-cardapio-web/uploads/subitem/image/2413939/thumb_b1315d20IMG_1089.jpeg"
                   },
                   {
                     "id": "addon-5",
                     "name": "Morango",
                     "price": 2,
+                    "description": "Açaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentos",
                     "max_quantity": 3,
                     "position": 3,
-                    "image_url": ""
+                    "image_url": "https://storage.googleapis.com/prod-cardapio-web/uploads/subitem/image/2413939/thumb_b1315d20IMG_1089.jpeg"
                   }
                 ]
               },
               {
                 "id": "group-3",
+                "name": "Turbine seu pedido",
+                "description": "Extras especiais",
+                "required": false,
+                "addons": [
+                  {
+                    "id": "addon-6",
+                    "name": "Leite condensado extra",
+                    "price": 2.5,
+                    "max_quantity": 2,
+                    "position": 1,
+                    "image_url": ""
+                  },
+                  {
+                    "id": "addon-7",
+                    "name": "Nutella",
+                    "price": 3,
+                    "max_quantity": 2,
+                    "position": 2,
+                    "image_url": ""
+                  }
+                ]
+              },
+              {
+                "id": "group-4",
+                "name": "Turbine seu pedido",
+                "description": "Extras especiais",
+                "required": false,
+                "addons": [
+                  {
+                    "id": "addon-6",
+                    "name": "Leite condensado extra",
+                    "price": 2.5,
+                    "max_quantity": 2,
+                    "position": 1,
+                    "image_url": ""
+                  },
+                  {
+                    "id": "addon-7",
+                    "name": "Nutella",
+                    "price": 3,
+                    "max_quantity": 2,
+                    "position": 2,
+                    "image_url": ""
+                  }
+                ]
+              },
+              {
+                "id": "group-5",
                 "name": "Turbine seu pedido",
                 "description": "Extras especiais",
                 "required": false,

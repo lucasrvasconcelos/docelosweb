@@ -8,14 +8,13 @@ import {
   DialogContent,
   DialogDescription,
   DialogFooter,
-  DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { Textarea } from "@/components/ui/textarea";
 import { TypographyH4 } from "@/components/ui/typographyH4";
 import { formatCurrecy } from "@/lib/format-currency";
+import { AddonsGroup } from "./addonsGroup";
 import { SpanTag } from "./tagsProduct";
 
 interface ProductItemProps {
@@ -30,7 +29,17 @@ export function ProductItem({ item }: ProductItemProps) {
     : 0;
 
   const [textArea, setTextArea] = useState("");
+
   const MAX_SIZE_TEXTAREA = 110;
+  const MIN_QUANTITY = 1;
+  const MAX_QUANTITY = 5;
+
+  function updateQuantity(delta: number) {
+    setQuantity((state) => {
+      const newValue = state + delta;
+      return Math.min(MAX_QUANTITY, Math.max(MIN_QUANTITY, newValue));
+    });
+  }
 
   return (
     <Dialog>
@@ -73,63 +82,42 @@ export function ProductItem({ item }: ProductItemProps) {
           <img alt={item.name} className="h-full w-full" src={item.imageUrl} />
         </div>
       </DialogTrigger>
-      <DialogContent className="rounded-t-4xl p-0" showCloseButton={false}>
-        <ScrollArea className="h-96">
-          <DialogHeader className="rounded-t-4xl bg-white">
-            <img
-              alt={item.name}
-              className="aspect-16/11 rounded-t-4xl object-cover transition-opacity duration-300"
-              src={item.imageUrl}
-            />
+      <DialogContent
+        className="h-full max-w-none rounded-none p-0"
+        showCloseButton={false}
+      >
+        <div className="h-screen overflow-y-auto pb-20">
+          <img
+            alt={item.name}
+            className="aspect-16/11 object-cover transition-opacity duration-300"
+            src={item.imageUrl}
+          />
 
-            <div className="mt-2 px-5">
-              <div className="mt-1 mb-3 -ml-1 flex flex-wrap gap-1 text-xs">
-                {item.tags?.map((tag) => (
-                  <SpanTag key={tag} variant={tag}>
-                    {tag}
-                  </SpanTag>
-                ))}
-              </div>
-              <DialogTitle className="mt-2 line-clamp-1 font-bold">
-                {item.name}
-              </DialogTitle>
-
-              {item.description && (
-                <DialogDescription className="mt-2 line-clamp-5">
-                  {item.description}
-                </DialogDescription>
-              )}
+          <div className="sticky top-0 z-50 mt-2 bg-white px-5 pt-2 pb-4">
+            <div className="mt-1 mb-3 -ml-1 flex flex-wrap gap-1 text-xs">
+              {item.tags?.map((tag) => (
+                <SpanTag key={tag} variant={tag}>
+                  {tag}
+                </SpanTag>
+              ))}
             </div>
-          </DialogHeader>
-          {item.addonsGroup && (
-            <div className="mt-8 flex flex-col px-5">
-              <div className="flex flex-col gap-3">
-                {item.addonsGroup.map((addonGroup) => {
-                  return (
-                    <div className="flex flex-col" key={addonGroup.id}>
-                      <span className="font-medium text-sm">
-                        {addonGroup.name}
-                      </span>
-                      <span>
-                        {" "}
-                        escolha até {addonGroup.maxSelect}{" "}
-                        {addonGroup.maxSelect && addonGroup.maxSelect > 1
-                          ? "opções"
-                          : "opção"}
-                      </span>
-                      {addonGroup.addons.map((addon) => {
-                        return <span key={addon.id}>{addon.name}</span>;
-                      })}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
+            <DialogTitle className="mt-2 line-clamp-1 font-bold">
+              {item.name}
+            </DialogTitle>
+          </div>
 
-          <div className="relative mt-1 px-4">
+          <div className="px-5">
+            {item.description && (
+              <DialogDescription className="line-clamp-5 text-xs italic">
+                {item.description}
+              </DialogDescription>
+            )}
+          </div>
+          {item.addonsGroup && <AddonsGroup addonsGroup={item.addonsGroup} />}
+
+          <div className="relative mt-8 mb-2 px-4">
             <Textarea
-              className={"wrap-anywhere h-6 text-xs"}
+              className={"wrap-anywhere min-h-25 text-xs"}
               id="observation"
               onChange={(e) =>
                 setTextArea((state) => {
@@ -144,49 +132,39 @@ export function ProductItem({ item }: ProductItemProps) {
             />
             <span className="absolute -top-4 right-6 font-semibold text-[10px] text-gray-500">{`${textArea.length} / ${MAX_SIZE_TEXTAREA}`}</span>
           </div>
-          <DialogClose asChild>
-            <Button
-              className="absolute top-3 right-2 h-10 w-10 cursor-pointer rounded-md bg-white/70"
-              type="button"
-            >
-              <X className="text-gray-700" />
-            </Button>
-          </DialogClose>
-        </ScrollArea>
+        </div>
+        <DialogClose asChild>
+          <Button
+            className="absolute top-3 right-2 h-10 w-10 cursor-pointer rounded-md bg-white/70"
+            type="button"
+          >
+            <X className="text-gray-700" />
+          </Button>
+        </DialogClose>
 
-        <DialogFooter className="flex flex-row items-center justify-center gap-3 px-3 pb-4">
+        <DialogFooter className="fixed bottom-0 flex w-full flex-row items-center justify-center gap-3 bg-white px-3 py-4">
           <div className="flex items-center space-x-4 rounded-md bg-gray-100 p-3 text-sm">
             <button
-              className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall cursor-pointer p-0 text-gray-700 text-xl"
-              onClick={() => {
-                setQuantity((state) => {
-                  if (state <= 1) {
-                    return state;
-                  }
-                  return state - 1;
-                });
-              }}
+              className="cursor-pointer p-0 text-gray-700 text-xl disabled:opacity-50"
+              disabled={quantity <= MIN_QUANTITY}
+              onClick={() => updateQuantity(-1)}
               type="button"
             >
-              <Minus size={14} />
+              <Minus size={16} />
             </button>
-            <span className="min-w-4 text-center font-normal text-gray-700 text-sx">
+            <span className="w-4 text-center font-normal text-gray-700 text-sx">
               {quantity}
             </span>
 
             <button
-              className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall cursor-pointer p-0 text-gray-700 text-xl"
-              onClick={() => {
-                setQuantity((state) => {
-                  if (state >= 99) {
-                    return state;
-                  }
-                  return state + 1;
-                });
-              }}
+              className={
+                "cursor-pointer p-0 text-gray-700 text-xl disabled:opacity-50"
+              }
+              disabled={quantity >= MAX_QUANTITY}
+              onClick={() => updateQuantity(1)}
               type="button"
             >
-              <Plus size={14} />
+              <Plus size={16} />
             </button>
           </div>
           <Button
@@ -194,10 +172,12 @@ export function ProductItem({ item }: ProductItemProps) {
             type="button"
             variant={"default"}
           >
-            <span>Adicionar</span>
-            <span>{formatCurrecy(productPrice)}</span>
+            <span className="w-full text-left">Adicionar</span>
+            <span className="absolute top-2.5 right-3 items-center whitespace-nowrap font-medium">
+              {formatCurrecy(productPrice)}
+            </span>
             {item.originalPrice && discountProduct > 0 && (
-              <span className="absolute -top-4 right-2 items-center whitespace-nowrap font-medium text-[10px] text-green-600">
+              <span className="absolute -top-3.5 right-2 items-center whitespace-nowrap font-medium text-[10px] text-green-600">
                 Economizou {formatCurrecy(discountProduct)}
               </span>
             )}
