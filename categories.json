@@ -20,14 +20,14 @@
                 "id": "group-1",
                 "name": "Proteínas",
                 "description": "Escolha 1 proteína",
-                "required": true,
+                "required": false,
                 "maxSelect": 1,
                 "addons": [
                   {
                     "id": "addon-1",
                     "name": "Whey Protein",
                     "price": 4,
-                    "max_quantity": 1,
+                    "max_quantity": 40,
                     "position": 1,
                     "image_url": "https://storage.googleapis.com/prod-cardapio-web/uploads/subitem/image/2413939/thumb_b1315d20IMG_1089.jpeg"
                   },
@@ -35,7 +35,7 @@
                     "id": "addon-2",
                     "name": "Açaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentosAçaí cremoso com acompanhamentos",
                     "price": 2,
-                    "max_quantity": 1,
+                    "max_quantity": 40,
                     "position": 2,
                     "image_url": "https://storage.googleapis.com/prod-cardapio-web/uploads/subitem/image/2413939/thumb_b1315d20IMG_1089.jpeg"
                   }
@@ -45,7 +45,7 @@
                 "id": "group-2",
                 "name": "Acompanhamentos",
                 "description": "Escolha até 3",
-                "required": false,
+                "required": true,
                 "maxSelect": 3,
                 "addons": [
                   {
@@ -87,7 +87,7 @@
                     "id": "addon-6",
                     "name": "Leite condensado extra",
                     "price": 2.5,
-                    "max_quantity": 2,
+                    "max_quantity": 1,
                     "position": 1,
                     "image_url": ""
                   },

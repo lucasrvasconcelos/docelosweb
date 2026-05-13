@@ -1,6 +1,6 @@
 import { Minus, Plus, X } from "lucide-react";
-import { useState } from "react";
-import type { ItemsType } from "@/api/products/categories";
+import { useMemo, useState } from "react";
+import type { ItemType } from "@/api/products/categories";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -13,22 +13,26 @@ import {
 } from "@/components/ui/dialog";
 import { Textarea } from "@/components/ui/textarea";
 import { TypographyH4 } from "@/components/ui/typographyH4";
+import { useCart } from "@/contexts/cart/cartContext";
 import { formatCurrecy } from "@/lib/format-currency";
 import { AddonsGroup } from "./addonsGroup";
 import { SpanTag } from "./tagsProduct";
 
 interface ProductItemProps {
-  item: ItemsType;
+  item: ItemType;
 }
-
 export function ProductItem({ item }: ProductItemProps) {
+  const { addToCart, selectedAddons } = useCart();
   const [quantity, setQuantity] = useState(1);
-  const productPrice = quantity * item.price;
   const discountProduct = item.originalPrice
     ? (item.originalPrice - item.price) * quantity
     : 0;
 
-  const [textArea, setTextArea] = useState("");
+  const totalPrice = useMemo(() => {
+    return quantity * item.price;
+  }, [quantity, item.price]);
+
+  const [observation, setObservation] = useState("");
 
   const MAX_SIZE_TEXTAREA = 110;
   const MIN_QUANTITY = 1;
@@ -39,6 +43,32 @@ export function ProductItem({ item }: ProductItemProps) {
       const newValue = state + delta;
       return Math.min(MAX_QUANTITY, Math.max(MIN_QUANTITY, newValue));
     });
+  }
+
+  function handleAddItem() {
+    const hasInvalidGroup = item.addonsGroup.some((group) => {
+      if (!group.required) {
+        return false;
+      }
+
+      return !selectedAddons.some((selected) => selected.addonId === group.id);
+    });
+
+    if (hasInvalidGroup) {
+      console.log("Selecione o grupo");
+      return;
+    }
+
+    addToCart({
+      addons: selectedAddons,
+      productId: item.id,
+      quantity,
+      observation,
+    });
+
+    setQuantity(1);
+
+    return;
   }
 
   return (
@@ -119,30 +149,28 @@ export function ProductItem({ item }: ProductItemProps) {
             <Textarea
               className={"wrap-anywhere min-h-25 text-xs"}
               id="observation"
-              onChange={(e) =>
-                setTextArea((state) => {
-                  if (e.target.value.length - 1 >= MAX_SIZE_TEXTAREA) {
-                    return state;
-                  }
-                  return e.target.value;
-                })
-              }
+              onChange={(e) => {
+                if (e.target.value.length > MAX_SIZE_TEXTAREA) {
+                  return;
+                }
+                setObservation(e.target.value);
+              }}
               placeholder="Alguma observação?"
-              value={textArea}
+              value={observation}
             />
-            <span className="absolute -top-4 right-6 font-semibold text-[10px] text-gray-500">{`${textArea.length} / ${MAX_SIZE_TEXTAREA}`}</span>
+            <span className="absolute -top-4 right-6 font-semibold text-[10px] text-gray-500">{`${observation.length} / ${MAX_SIZE_TEXTAREA}`}</span>
           </div>
         </div>
         <DialogClose asChild>
           <Button
-            className="absolute top-3 right-2 h-10 w-10 cursor-pointer rounded-md bg-white/70"
+            className="absolute top-3 right-3 z-50 h-10 w-10 cursor-pointer rounded-md bg-gray-200/75"
             type="button"
           >
-            <X className="text-gray-700" />
+            <X className="text-gray-700" size={22} />
           </Button>
         </DialogClose>
 
-        <DialogFooter className="fixed bottom-0 flex w-full flex-row items-center justify-center gap-3 bg-white px-3 py-4">
+        <DialogFooter className="fixed bottom-0 z-50 flex w-full flex-row items-center justify-center gap-3 bg-white px-3 py-4">
           <div className="flex items-center space-x-4 rounded-md bg-gray-100 p-3 text-sm">
             <button
               className="cursor-pointer p-0 text-gray-700 text-xl disabled:opacity-50"
@@ -169,12 +197,13 @@ export function ProductItem({ item }: ProductItemProps) {
           </div>
           <Button
             className="relative flex-1 cursor-pointer gap-8 rounded-md py-5"
+            onClick={() => handleAddItem()}
             type="button"
             variant={"default"}
           >
             <span className="w-full text-left">Adicionar</span>
             <span className="absolute top-2.5 right-3 items-center whitespace-nowrap font-medium">
-              {formatCurrecy(productPrice)}
+              {formatCurrecy(totalPrice)}
             </span>
             {item.originalPrice && discountProduct > 0 && (
               <span className="absolute -top-3.5 right-2 items-center whitespace-nowrap font-medium text-[10px] text-green-600">

@@ -1,4 +1,4 @@
-interface AddonsType {
+interface AddonType {
   description?: string;
   id: string;
   image_url?: string;
@@ -9,7 +9,7 @@ interface AddonsType {
 }
 
 interface AddonsGroupType {
-  addons: AddonsType[];
+  addons: AddonType[];
   description?: string;
   id: string;
   maxSelect?: number;
@@ -17,14 +17,14 @@ interface AddonsGroupType {
   required: boolean;
 }
 
-export type ItemsTags =
+export type ItemTags =
   | "best_seller"
   | "recommended"
   | "new"
   | "exclusive"
   | "promotion";
 
-interface ItemsType {
+interface ItemType {
   addonsGroup: AddonsGroupType[];
   description: string;
   id: string;
@@ -32,13 +32,13 @@ interface ItemsType {
   name: string;
   originalPrice?: number;
   price: number;
-  tags?: ItemsTags[];
+  tags?: ItemTags[];
 }
 
 interface CategoriesType {
   description: string;
   id: string;
-  items: ItemsType[];
+  items: ItemType[];
   name: string;
   position?: number;
 }

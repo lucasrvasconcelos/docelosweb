@@ -1,5 +1,10 @@
 import { Outlet } from "react-router";
+import { CartProvider } from "@/contexts/cart/cartContext";
 
 export function MenuLayout() {
-  return <Outlet />;
+  return (
+    <CartProvider>
+      <Outlet />
+    </CartProvider>
+  );
 }

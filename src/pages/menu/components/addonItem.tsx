@@ -1,30 +1,31 @@
 import { Minus, Plus } from "lucide-react";
-import { useState } from "react";
-import type { AddonsType } from "@/api/products/categories";
+import type { AddonType } from "@/api/products/categories";
 import { formatCurrecy } from "@/lib/format-currency";
+import { RadioIndicator } from "./RadioIndicator";
 import { RemoveAddonAlert } from "./removeAddonAlert";
 
 interface AddonItemProps {
-  addon: AddonsType;
+  addon: AddonType;
+  disabled: boolean;
+  maxGroupSelect: number;
+  onDecrement: () => void;
+  onIncrement: () => void;
+  quantity: number;
+  selected: boolean;
 }
 
-export function AddonItem({ addon }: AddonItemProps) {
-  const [quantity, setQuantity] = useState(0);
-  const MIN_QUANTITY = 0;
-  const MAX_QUANTITY = 5;
-
-  function updateQuantity(delta: number) {
-    setQuantity((state) => {
-      const newValue = state + delta;
-      return Math.min(MAX_QUANTITY, Math.max(MIN_QUANTITY, newValue));
-    });
-  }
+export function AddonItem({
+  quantity,
+  onIncrement,
+  onDecrement,
+  addon,
+  disabled,
+  maxGroupSelect,
+  selected,
+}: AddonItemProps) {
   return (
-    <div
-      className="flex w-full items-center justify-between bg-card px-4"
-      key={addon.id}
-    >
-      <div className="flex items-center justify-center">
+    <div className="relative flex w-full items-center justify-between bg-card px-4 pr-6">
+      <div className="flex w-full items-center justify-center">
         {addon.image_url && (
           <img
             alt={addon.name}
@@ -32,12 +33,16 @@ export function AddonItem({ addon }: AddonItemProps) {
             src={addon.image_url}
           />
         )}
-        <div className="py-4 pr-2">
+        <button
+          className="w-full py-4 text-left"
+          onClick={selected && maxGroupSelect === 1 ? onDecrement : onIncrement}
+          type="button"
+        >
           <span className="line-clamp-2 w-full font-normal text-gray-700 text-sm tracking-tight">
             {addon.name}
           </span>
           {addon.description && (
-            <span className="line-clamp-3 font-light text-gray-700 text-xs">
+            <span className="line-clamp-2 font-light text-gray-700 text-xs">
               {addon.description}
             </span>
           )}
@@ -46,41 +51,50 @@ export function AddonItem({ addon }: AddonItemProps) {
               + {formatCurrecy(addon.price)}
             </span>
           )}
-        </div>
-      </div>
-      <div className="flex items-center space-x-4 rounded-md text-sm">
-        {quantity > 0 && (
-          <>
-            {quantity === 1 ? (
-              <RemoveAddonAlert />
-            ) : (
-              <button
-                className="cursor-pointer p-0 text-primary text-xl disabled:opacity-50"
-                disabled={quantity <= MIN_QUANTITY}
-                onClick={() => updateQuantity(-1)}
-                type="button"
-              >
-                <Minus size={18} />
-              </button>
-            )}
-
-            <span className="w-4 text-center font-normal text-gray-700 text-sx">
-              {quantity}
-            </span>
-          </>
-        )}
-
-        <button
-          className={
-            "cursor-pointer p-0 text-primary text-xl disabled:opacity-50"
-          }
-          disabled={quantity >= MAX_QUANTITY}
-          onClick={() => updateQuantity(1)}
-          type="button"
-        >
-          <Plus size={18} />
         </button>
       </div>
+      {maxGroupSelect > 1 ? (
+        <div className="flex items-center space-x-2 rounded-md text-sm">
+          {quantity > 0 && (
+            <>
+              {quantity === 1 ? (
+                <RemoveAddonAlert
+                  addonName={addon.name}
+                  onDecrement={onDecrement}
+                />
+              ) : (
+                <button
+                  className="cursor-pointer p-0 text-primary text-xl disabled:opacity-50"
+                  onClick={onDecrement}
+                  type="button"
+                >
+                  <Minus size={18} />
+                </button>
+              )}
+              <span className="w-8 overflow-hidden text-center font-normal text-gray-700 text-sx">
+                {quantity}
+              </span>
+            </>
+          )}
+
+          <button
+            className={
+              "cursor-pointer p-0 text-primary text-xl disabled:opacity-50"
+            }
+            disabled={disabled}
+            onClick={onIncrement}
+            type="button"
+          >
+            <Plus size={18} />
+          </button>
+        </div>
+      ) : (
+        <RadioIndicator
+          onDecrement={onDecrement}
+          onIncrement={onIncrement}
+          selected={selected}
+        />
+      )}
     </div>
   );
 }
