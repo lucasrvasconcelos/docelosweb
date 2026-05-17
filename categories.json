@@ -81,7 +81,8 @@
                 "id": "group-3",
                 "name": "Turbine seu pedido",
                 "description": "Extras especiais",
-                "required": false,
+                "required": true,
+                "maxSelect": 0,
                 "addons": [
                   {
                     "id": "addon-6",

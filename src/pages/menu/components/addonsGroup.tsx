@@ -77,7 +77,7 @@ export function AddonsGroup({ addonsGroup }: AddonsGroupTypeProps) {
     <div className="mt-8 flex flex-col">
       <ul className="flex flex-col">
         {addonsGroup.map((addonGroup) => {
-          const maxGroupSelect = addonGroup.maxSelect ?? 1;
+          const maxGroupSelect = Math.max(1, addonGroup.maxSelect ?? 1);
           const selectedCount = Object.values(
             selectedAddons[addonGroup.id] ?? {}
           ).reduce((acc, quantity) => acc + quantity, 0);

@@ -1,7 +1,7 @@
 import { Minus, Plus } from "lucide-react";
 import type { AddonType } from "@/api/products/categories";
 import { formatCurrecy } from "@/lib/format-currency";
-import { RadioIndicator } from "./RadioIndicator";
+import { RadioIndicator } from "./radioIndicator";
 import { RemoveAddonAlert } from "./removeAddonAlert";
 
 interface AddonItemProps {
